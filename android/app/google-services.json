@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "139239628687",
+    "project_id": "flutter-60022",
+    "storage_bucket": "flutter-60022.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139239628687:android:e0538bedb4f6fda67cf5fa",
+        "android_client_info": {
+          "package_name": "com.example.calculator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpvKoSDofW2MOOBDY5c5qjjP_fROzINKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139239628687:android:6100156ac0ed38ae7cf5fa",
+        "android_client_info": {
+          "package_name": "com.example.flutterse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpvKoSDofW2MOOBDY5c5qjjP_fROzINKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139239628687:android:4243e47631fd693c7cf5fa",
+        "android_client_info": {
+          "package_name": "com.example.newsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpvKoSDofW2MOOBDY5c5qjjP_fROzINKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
