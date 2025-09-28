@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+// ignore: unused_import
 import 'package:webview_flutter_android/webview_flutter_android.dart';
 
 
 class ArticleView extends StatefulWidget {
   final String blogUrl;
+  // ignore: use_super_parameters
   const ArticleView({required this.blogUrl, Key? key}) : super(key: key);
 
   @override

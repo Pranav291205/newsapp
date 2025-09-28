@@ -19,6 +19,7 @@ class News{
             content: element["content"],
             author: element["author"],
           );
+          
           news.add(articlemod);
         }
 

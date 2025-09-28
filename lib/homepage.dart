@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:newsapp/all_news.dart';
 import 'package:newsapp/article.dart';
 import 'package:newsapp/articleview.dart';
@@ -63,7 +64,12 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: loading? Center(child: CircularProgressIndicator()): SingleChildScrollView(
+      body: loading? Center(child: SizedBox(height: 100.0,width: 70.0,
+        child:SpinKitThreeInOut(
+                    color: Colors.blue,
+                    size: 40.0,
+                  ),
+      )): SingleChildScrollView(
         child: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,9 +96,48 @@ class _HomeState extends State<Home> {
                 children: [ 
                 Text("Breaking News!",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w900,fontSize:20.0),),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>AllNews(news: "Breaking")));
-                  },
+                  onTap: () {
+  Navigator.push(context, MaterialPageRoute(
+    builder: (context) => Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Breaking News",
+          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+      body: Container(
+        child: loading?
+              Center(
+                child: SizedBox(
+                  width: 50.0,
+                  height: 50.0,
+                  child: SpinKitThreeInOut(
+                    color:Colors.blue,
+                    size: 40.0,
+                  ),
+                ),
+              )
+                : ListView.builder(
+                    shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
+                    itemCount: sliders.length,
+                    itemBuilder: (context, index) {
+                      final article = sliders[index];
+                      return AllNewsSection(
+                        image: article.urlToImage ?? '',
+                        desc: article.description ?? '',
+                        title: article.title ?? '',
+                        url: article.url ?? '',
+                      );
+                    },
+                  ),
+      ),
+    ),
+  ));
+},
+
                   child: Text("View All",
                   style: TextStyle(
                     color: Colors.blueAccent,
@@ -107,8 +152,19 @@ class _HomeState extends State<Home> {
               itemBuilder: (context, index, realIndex){
               String? res=sliders[index].urlToImage;
               String? res1=sliders[index].title;
-              return buildImage(res!, index, res1!);
-            }, 
+            return SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                  children: [
+                    GestureDetector(onTap:(){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> ArticleView(blogUrl: sliders[index].url!)));
+                      },
+                    child: buildImage(res!, index, res1!)),
+                    //SizedBox(height: 300.0,),
+                  ],
+                ),
+            );
+            },
             options: CarouselOptions(
               height: 200,
               autoPlay: true,
@@ -133,8 +189,47 @@ class _HomeState extends State<Home> {
               Text("Treding News!",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w900,fontSize:20.0),),
                 GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>AllNews(news: "Trending")));
-                  },
+                     Navigator.push(context, MaterialPageRoute(
+    builder: (context) => Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Trending News",
+          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+      body: Container(
+        child: loading
+            ? Center(
+                child: SizedBox(
+                  width: 50.0,
+                  height: 50.0,
+                    child: SpinKitThreeInOut(
+                      color: const Color.fromARGB(255, 55, 61, 179),
+                      size: 40.0,
+                    ),
+                  
+                ),
+              )
+                : ListView.builder(
+                    shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
+                    itemCount: articles.length,
+                    itemBuilder: (context, index) {
+                      final article = articles[index];
+                      return AllNewsSection(
+                        image: article.urlToImage ?? '',
+                        desc: article.description ?? '',
+                        title: article.title ?? '',
+                        url: article.url ?? '',
+                      );
+                    },
+                  ),
+                  ),
+    ),
+  ));
+},  
                   child: Text("View All",
                   style: TextStyle(
                     color: Colors.blueAccent,
@@ -200,7 +295,7 @@ class _HomeState extends State<Home> {
         child:Text(
           name,
           maxLines:2,
-          style: TextStyle(color: Colors.white,fontSize: 18.0, fontWeight: FontWeight.bold)),
+          style: TextStyle(color: Colors.white,fontSize: 17.0, fontWeight: FontWeight.bold)),
       )
       ]
     ),

@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:newsapp/articleview.dart';
 import 'package:newsapp/show_category.dart';
 import 'package:newsapp/show_category_news.dart';
 
+// ignore: must_be_immutable
 class CategoryNews extends StatefulWidget {
   String name;
   CategoryNews({required this.name});
@@ -45,7 +47,15 @@ class _CategoryNewsState extends State<CategoryNews> {
       ), 
       body: Container(
         margin: EdgeInsets.symmetric(horizontal: 10.0),
-            child: ListView.builder(
+            child: loading? Center(child: SizedBox(height: 100.0,width: 70.0,
+              child:SpinKitThreeInOut(
+                    color: Colors.blue,
+                    size: 40.0,
+                  ),
+                  
+            )
+            )
+            :ListView.builder(
               shrinkWrap:true,
               physics:ClampingScrollPhysics(),
               itemCount: categories.length, itemBuilder:(context, index) {
