@@ -1,64 +1,95 @@
 {
   "project_info": {
-    "project_number": "139239628687",
-    "project_id": "flutter-60022",
-    "storage_bucket": "flutter-60022.firebasestorage.app"
+    "project_number": "51055881424",
+    "project_id": "flutter-brl",
+    "storage_bucket": "flutter-brl.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:139239628687:android:e0538bedb4f6fda67cf5fa",
+        "mobilesdk_app_id": "1:51055881424:android:362d30ed7d92d9366602d5",
         "android_client_info": {
-          "package_name": "com.example.calculator"
+          "package_name": "com.example.flutteranew"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "51055881424-hjbobluaghmtagle08fhklj8jfqq1v5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutteranew",
+            "certificate_hash": "db5fde4fed2aa1196914eaa58a9e3414a4327ade"
+          }
+        },
+        {
+          "client_id": "51055881424-aamp15luvforasu29up571tpcorajjis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCpvKoSDofW2MOOBDY5c5qjjP_fROzINKo"
+          "current_key": "AIzaSyCbzk3NVAYcR-EQHAoyl4bZ9NsQS29DOpo"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51055881424-aamp15luvforasu29up571tpcorajjis.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "51055881424-cah5vh77utgetbrkhpo43qmb96vsq51t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutteranew"
+              }
+            }
+          ]
         }
       }
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:139239628687:android:6100156ac0ed38ae7cf5fa",
-        "android_client_info": {
-          "package_name": "com.example.flutterse"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCpvKoSDofW2MOOBDY5c5qjjP_fROzINKo"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:139239628687:android:4243e47631fd693c7cf5fa",
+        "mobilesdk_app_id": "1:51055881424:android:6086d735364f47aa6602d5",
         "android_client_info": {
           "package_name": "com.example.newsapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "51055881424-gnlptmb2cl8pfudv0cgidofaj9e2837c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.newsapp",
+            "certificate_hash": "db5fde4fed2aa1196914eaa58a9e3414a4327ade"
+          }
+        },
+        {
+          "client_id": "51055881424-aamp15luvforasu29up571tpcorajjis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCpvKoSDofW2MOOBDY5c5qjjP_fROzINKo"
+          "current_key": "AIzaSyCbzk3NVAYcR-EQHAoyl4bZ9NsQS29DOpo"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51055881424-aamp15luvforasu29up571tpcorajjis.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "51055881424-cah5vh77utgetbrkhpo43qmb96vsq51t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutteranew"
+              }
+            }
+          ]
         }
       }
     }

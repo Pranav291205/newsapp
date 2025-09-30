@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:newsapp/all_news.dart';
@@ -8,6 +9,7 @@ import 'package:newsapp/articleview.dart';
 import 'package:newsapp/category_news.dart';
 import 'package:newsapp/categorymod.dart';
 import 'package:newsapp/data.dart';
+import 'package:newsapp/landingpage.dart';
 import 'package:newsapp/news.dart';
 import 'package:newsapp/slider.dart';
 import 'package:newsapp/sliderdata.dart';
@@ -47,6 +49,14 @@ class _HomeState extends State<Home> {
     await slider.getSliders();
     sliders=slider.sliders;
   }
+  Future<void> _signOut() async {
+  await FirebaseAuth.instance.signOut();
+  Navigator.pushAndRemoveUntil(
+    context,
+    MaterialPageRoute(builder: (context) => const Landingpage()),
+    (route) => false,
+  );
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +74,20 @@ class _HomeState extends State<Home> {
         centerTitle: true,
         elevation: 0.0,
       ),
+      floatingActionButton: FloatingActionButton(
+  onPressed: () async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const Landingpage()),
+      (route) => false,
+    );
+  },
+  tooltip: 'Sign Out',
+  backgroundColor: const Color.fromARGB(255, 186, 198, 215),
+  child: const Icon(Icons.exit_to_app),
+),
+
       body: loading? Center(child: SizedBox(height: 100.0,width: 70.0,
         child:SpinKitThreeInOut(
                     color: Colors.blue,

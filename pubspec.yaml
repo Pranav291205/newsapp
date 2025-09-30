@@ -43,10 +43,11 @@ dependencies:
   webview_flutter_android: ^4.0.7
   firebase_auth: ^6.0.2
   flutter_spinkit: ^5.2.2
-
+  google_sign_in: ^5.4.4
 
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.14.4
   flutter_test:
     sdk: flutter
 
@@ -59,7 +60,10 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "iconchange/icon.png"
 # The following section is specific to Flutter packages.
 flutter:
 

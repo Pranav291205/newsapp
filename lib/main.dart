@@ -1,13 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:newsapp/homepage.dart';
 import 'package:newsapp/landingpage.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
 
 
 
-void main() {
+void main() async{
   //idgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
     WebViewPlatform.instance = AndroidWebViewPlatform();
 // Use TextureView instead of SurfaceView
   runApp( MyApp());
@@ -24,7 +28,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Landingpage(),
+      home: FirebaseAuth.instance.currentUser != null
+          ? const Home() // Already signed in
+          : const Landingpage(),
     );
   }
 }
