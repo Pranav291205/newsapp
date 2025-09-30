@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/homepage.dart';
 import 'package:newsapp/registration/signin.dart';
 // ignore: unused_import
 import 'package:newsapp/registration/signup.dart';

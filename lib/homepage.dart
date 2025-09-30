@@ -49,6 +49,7 @@ class _HomeState extends State<Home> {
     await slider.getSliders();
     sliders=slider.sliders;
   }
+  // ignore: unused_element
   Future<void> _signOut() async {
   await FirebaseAuth.instance.signOut();
   Navigator.pushAndRemoveUntil(
