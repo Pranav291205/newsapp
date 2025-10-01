@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:newsapp/articleview.dart';
-import 'package:newsapp/show_category.dart';
-import 'package:newsapp/show_category_news.dart';
+import 'package:newsapp/viewall/articleview.dart';
+import 'package:newsapp/categorynews/show_category.dart';
+import 'package:newsapp/categorynews/show_category_news.dart';
 
 // ignore: must_be_immutable
 class CategoryNews extends StatefulWidget {

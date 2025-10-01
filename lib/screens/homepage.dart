@@ -3,16 +3,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:newsapp/all_news.dart';
-import 'package:newsapp/article.dart';
-import 'package:newsapp/articleview.dart';
-import 'package:newsapp/category_news.dart';
-import 'package:newsapp/categorymod.dart';
-import 'package:newsapp/data.dart';
-import 'package:newsapp/landingpage.dart';
-import 'package:newsapp/news.dart';
-import 'package:newsapp/slider.dart';
-import 'package:newsapp/sliderdata.dart';
+import 'package:newsapp/viewall/all_news.dart';
+import 'package:newsapp/trengingnews/article.dart';
+import 'package:newsapp/viewall/articleview.dart';
+import 'package:newsapp/categorynews/category_news.dart';
+import 'package:newsapp/categorynews/categorymod.dart';
+import 'package:newsapp/categorynews/data.dart';
+import 'package:newsapp/screens/landingpage.dart';
+import 'package:newsapp/trengingnews/news.dart';
+import 'package:newsapp/breakingnews/slider.dart';
+import 'package:newsapp/breakingnews/sliderdata.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Home extends StatefulWidget {

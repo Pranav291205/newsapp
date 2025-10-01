@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapp/homepage.dart';
+import 'package:newsapp/screens/homepage.dart';
 
 class Verify extends StatefulWidget {
   const Verify({super.key});
@@ -85,7 +85,7 @@ class _VerifyState extends State<Verify> {
       child: isLoading
           ? const CircularProgressIndicator()
           : const Text(
-              '📬\nCheck your email inbox\n\nA verification link has been sent.',
+              '📬\nCheck your email inbox\n\nA verification link has been sent.\n \nPress reload button after verification to enter APP',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,

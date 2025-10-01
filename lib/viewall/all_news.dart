@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapp/articleview.dart';
+import 'package:newsapp/viewall/articleview.dart';
 class AllNewsSection extends StatelessWidget {
   final String image,desc,title,url;
   AllNewsSection({required this.image,required this.desc,required this.title,required this.url,Key?key}):super(key:key);

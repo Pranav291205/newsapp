@@ -1,4 +1,4 @@
- import 'package:newsapp/categorymod.dart';
+ import 'package:newsapp/categorynews/categorymod.dart';
 
 List<Categorymod> Categoriess(){
   List<Categorymod> category=[];

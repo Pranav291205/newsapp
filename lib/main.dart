@@ -1,19 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapp/homepage.dart';
-import 'package:newsapp/landingpage.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:newsapp/screens/homepage.dart';
+import 'package:newsapp/screens/landingpage.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
 
 
 
-void main() async{
-  //idgetsFlutterBinding.ensureInitialized();
+Future main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  
   await Firebase.initializeApp();
     WebViewPlatform.instance = AndroidWebViewPlatform();
-// Use TextureView instead of SurfaceView
+  await dotenv.load(fileName: ".env");
   runApp( MyApp());
 }
 

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:newsapp/homepage.dart';
+import 'package:newsapp/screens/homepage.dart';
 import 'package:newsapp/registration/forgotpass.dart';
 import 'package:newsapp/registration/signup.dart';
 
@@ -17,14 +17,12 @@ class _LoginState extends State<Login> {
   TextEditingController password = TextEditingController();
   bool isloading = false;
 
-  // Show snackbar message
   void showSnackbar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message)),
     );
   }
 
-  // Sign in user
   Future<void> signIn() async {
     setState(() {
       isloading = true;
@@ -36,7 +34,6 @@ class _LoginState extends State<Login> {
         password: password.text,
       );
 
-      // Navigate to homepage after login
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const Home()),
@@ -54,10 +51,9 @@ class _LoginState extends State<Login> {
   google() async {
   final GoogleSignIn googleSignIn = GoogleSignIn(
     scopes: ['email'],
-    // prompt: 'select_account', // This is key for showing account picker
   );
 
-  await googleSignIn.signOut(); // Ensure it doesn't reuse previous account
+  await googleSignIn.signOut();
 
   final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
   final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
@@ -69,17 +65,16 @@ class _LoginState extends State<Login> {
 
   await FirebaseAuth.instance.signInWithCredential(credential);
 
-  // Navigate to Verify page
   Navigator.of(context).pushReplacement(
     MaterialPageRoute(builder: (context) => const Home()),
   );
 }
 
   signout() async {
-    await FirebaseAuth.instance.signOut(); // Firebase logout
-    await GoogleSignIn().signOut();       // Google logout
+    await FirebaseAuth.instance.signOut(); 
+    await GoogleSignIn().signOut();      
 
-    // Navigate back to this Google sign in page replacing current
+    
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => google()),
     );
