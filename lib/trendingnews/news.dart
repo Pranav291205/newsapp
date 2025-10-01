@@ -1,7 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
-import 'package:newsapp/trengingnews/article.dart';
+import 'package:newsapp/trendingnews/article.dart';
 
 class News{
   List<Article> news=[];
