@@ -4,15 +4,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:newsapp/viewall/all_news.dart';
-import 'package:newsapp/trendingnews/article.dart';
-import 'package:newsapp/viewall/articleview.dart';
+import 'package:newsapp/models/article.dart';
+import 'package:newsapp/web_view/articleview.dart';
 import 'package:newsapp/categorynews/category_news.dart';
 import 'package:newsapp/categorynews/categorymod.dart';
 import 'package:newsapp/categorynews/data.dart';
 import 'package:newsapp/screens/landingpage.dart';
-import 'package:newsapp/trendingnews/news.dart';
-import 'package:newsapp/breakingnews/slider.dart';
-import 'package:newsapp/breakingnews/sliderdata.dart';
+import 'package:newsapp/api_calls/news.dart';
+import 'package:newsapp/models/slider.dart';
+import 'package:newsapp/api_calls/sliderdata.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Home extends StatefulWidget {
@@ -74,20 +74,26 @@ class _HomeState extends State<Home> {
         ),
         centerTitle: true,
         elevation: 0.0,
+        actions: [
+    PopupMenuButton<String>(
+      onSelected: (value) async {
+        if (value == 'logout') {
+          await FirebaseAuth.instance.signOut();
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const Landingpage()),
+          );
+        }
+      },
+      itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+        const PopupMenuItem<String>(
+          value: 'logout',
+          child: Text('Logout'),
+        ),
+      ],
+    ),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-  onPressed: () async {
-    await FirebaseAuth.instance.signOut();
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => const Landingpage()),
-      (route) => false,
-    );
-  },
-  tooltip: 'Sign Out',
-  backgroundColor: const Color.fromARGB(255, 186, 198, 215),
-  child: const Icon(Icons.exit_to_app),
-),
 
       body: loading? Center(child: SizedBox(height: 100.0,width: 70.0,
         child:SpinKitThreeInOut(

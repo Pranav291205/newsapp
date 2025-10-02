@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapp/registration/verify.dart';
+import 'package:newsapp/auth/verify.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
