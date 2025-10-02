@@ -21,7 +21,7 @@ class _ForgotPassState extends State<ForgotPass> {
 
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: emailText);
-      showSnackbar('Password reset link sent to your email');
+      showSnackbar('Password reset link sent to your email!');
     } on FirebaseAuthException catch (e) {
       String errorMessage;
 
@@ -48,55 +48,63 @@ class _ForgotPassState extends State<ForgotPass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-  appBar: AppBar(
-    title: const Text(
-      "Forgot Password",
-      style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
-    ),
-    backgroundColor: Colors.blueAccent,
-    elevation: 4,
-    centerTitle: true,
-  ),
-  body: Padding(
-    padding: const EdgeInsets.all(20.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          "Reset your password",
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+      appBar: AppBar(
+        title: const Text(
+          "Forgot Password",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 20),
-        TextField(
-          controller: email,
-          decoration: InputDecoration(
-            hintText: 'Enter email',
-            prefixIcon: const Icon(Icons.email_outlined),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-            filled: true,
-            fillColor: Colors.grey[100],
-          ),
-          keyboardType: TextInputType.emailAddress,
-        ),
-        const SizedBox(height: 30),
-        SizedBox(
-          width: double.infinity,
-          child: ElevatedButton(
-            onPressed: reset,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blueAccent,
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: Colors.blueAccent,
+        elevation: 4,
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "Reset your password",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
             ),
-            child: const Text(
-              "Send Reset Link",
-              style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),
+            const SizedBox(height: 20),
+            TextField(
+              controller: email,
+              decoration: InputDecoration(
+                hintText: 'Enter email',
+                prefixIcon: const Icon(Icons.email_outlined),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                filled: true,
+                fillColor: Colors.grey[100],
+              ),
+              keyboardType: TextInputType.emailAddress,
             ),
-          ),
+            const SizedBox(height: 30),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: reset,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent,
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: const Text(
+                  "Send Reset Link",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
-      ],
-    ),
-  ),
-);
-}
+      ),
+    );
+  }
 }
